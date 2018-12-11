@@ -12,21 +12,21 @@ class ViewController: UIViewController {
     //how to create a tile
     @IBOutlet weak var tile: Tile!
     var tap = UITapGestureRecognizer()
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func createTile(image:String,id:Int,tile:Tile)
+    {
         tap = UITapGestureRecognizer(target: self, action: #selector(ViewController.handleTap(_:)))
         tap.numberOfTapsRequired = 1
         tap.numberOfTouchesRequired = 1
         tile.addGestureRecognizer(tap)
         tile.isUserInteractionEnabled = true
-        //end of creating tile
         //Use .Image to set initial image and image ID
-        if let tile = tile
-        {
-            tile.Image(image: UIImage(named: "download")!,id: 0)
-        }
-        
-        //Image.isUserInteractionEnabled = true
+        tile.Image(image: UIImage(named: image)!,id: id)
+    }
+    //end of creating tile
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //example of creating tile
+        createTile(image: "download",id:0,tile:self.tile)
         // Do any additional setup after loading the view, typically from a nib.
     }
     //to change image
