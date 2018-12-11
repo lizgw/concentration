@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     }
     
     class Tile : UIButton { } // TODO: remove this - it's just to avoid errors while waiting for actual tile class
+    let mainStackView : UIStackView = UIStackView() // TODO: remove this - should be populated by IB
     
     // all tiles must be in the grid before this
     func randomizeLayout() {
@@ -41,6 +42,31 @@ class ViewController: UIViewController {
             }
         }
         
+    }
+    
+    func getTileArray() -> [Tile] {
+        // set up an array
+        var resultArr: [Tile] = []
+        
+        // for each sub stack view
+        for stackView in mainStackView.arrangedSubviews {
+            
+            // get it and make sure it's an actual stack view
+            guard let stackView = stackView as? UIStackView else { return [] }
+            
+            // for each tile inside
+            for tile in stackView.arrangedSubviews {
+                
+                // get it and make sure it's a tile
+                guard let tile = tile as? Tile else { return [] }
+                
+                // add the tile to the array
+                resultArr.append(tile)
+            }
+        }
+        
+        // return an array with all the tiles
+        return resultArr
     }
     
 }
