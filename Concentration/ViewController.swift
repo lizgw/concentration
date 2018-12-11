@@ -23,21 +23,28 @@ class ViewController: UIViewController {
     // all tiles must be in the grid before this
     func randomizeLayout() {
         // make an array of all the tiles
-        var tiles: [Tile] = [] // TODO: get tiles from the UI grid
-        // ref to stack view, parse it & save them? break this into a separate method
+        var tiles: [Tile] = getTileArray()
         
-        let rows: [UIStackView] = [] // TODO: populate this from the UI
-        let numCols = 4 // TODO: get this from the UI
+        // get values from the grid
+        guard let rows = mainStackView.arrangedSubviews as? [UIStackView] else { return }
+        let numCols = mainStackView.arrangedSubviews.count
+        
+        // clear the grid in the UI
+        for row in rows {
+            row.arrangedSubviews.removeAll()
+        }
         
         // loop through the grid
         for row in rows {
             for _ in 0...numCols {
-                // put a random tile in that spot
+                // pick a random tile
                 let randIndex = Int.random(in: 0...tiles.count)
                 let tile:Tile = tiles[randIndex]
+                
+                // add it to the UI
                 row.addArrangedSubview(tile)
                 
-                // remove that tile from the array
+                // remove that tile from the array so it's not picked again
                 tiles.remove(at: randIndex)
             }
         }
