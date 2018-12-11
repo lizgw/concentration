@@ -31,7 +31,12 @@ class ViewController: UIViewController {
         
         // clear the grid in the UI
         for row in rows {
-            row.arrangedSubviews.removeAll()
+            for stackView in row.arrangedSubviews {
+                // get the view
+                guard let stackView = stackView as? UIStackView else { return }
+                // remove it
+                row.removeArrangedSubview(stackView)
+            }
         }
         
         // loop through the grid
