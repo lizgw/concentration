@@ -35,7 +35,9 @@ class ViewController: UIViewController {
         tile.addArrangedSubview(UIImageView.init(image:newImage))
     }
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
+        
         print("Hello World")
+        
     }
 
 }
