@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    //how to create a tile
     @IBOutlet weak var tile: Tile!
     var tap = UITapGestureRecognizer()
     override func viewDidLoad() {
@@ -19,13 +19,20 @@ class ViewController: UIViewController {
         tap.numberOfTouchesRequired = 1
         tile.addGestureRecognizer(tap)
         tile.isUserInteractionEnabled = true
-        //self.view.addSubview(view)
+        //end of creating tile
+        //Use .Image to set initial image and image ID
         if let tile = tile
         {
             tile.Image(image: UIImage(named: "download")!,id: 0)
         }
+        
         //Image.isUserInteractionEnabled = true
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    //to change image
+    func changeImage(tile:Tile,newImage:UIImage)
+    {
+        tile.addArrangedSubview(UIImageView.init(image:newImage))
     }
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
         print("Hello World")
