@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+//Let's change the Tile.swift class idk at this point lol
 class Tile: UIStackView {
     //MARK: Initialization
    // let tapGesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
