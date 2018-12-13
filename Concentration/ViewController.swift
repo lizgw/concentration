@@ -10,8 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
     //how to create a tile
-    @IBOutlet weak var tile: Tile!
     var tap = UITapGestureRecognizer()
+    @IBOutlet var imageArray: [Tile]!
+    
     func createTile(image:String,id:Int,tile:Tile)
     {
         tap = UITapGestureRecognizer(target: self, action: #selector(ViewController.handleTap(_:)))
@@ -26,7 +27,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //example of creating tile
-        createTile(image: "download",id:0,tile:self.tile)
+        for tile in imageArray
+        {
+            createTile(image: "back", id: 1, tile: tile)
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
     //to change image
@@ -35,8 +39,33 @@ class ViewController: UIViewController {
         tile.addArrangedSubview(UIImageView.init(image:newImage))
     }
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
+        var indexSentFrom:Int=0
+        var index=0
+        while index<20
+        {
+            if sender.view == imageArray[index]
+            {
+                indexSentFrom=index
+            }
+            index+=1
+        }
+        let currTile:Tile=imageArray[indexSentFrom]
+        if (currTile.subviews[0] as! UIImageView).image != UIImage(named: "back")
+        {
+            changeImage(tile: currTile, newImage: UIImage(named: "back")!)
+        }
+        if (currTile.subviews[0] as! UIImageView).image == UIImage(named: "back")
+        {
+            if currTile.getID()<10
+            {
+                changeImage(tile: currTile, newImage: UIImage(named: "icon0\(currTile.getID())")!)
+            }
+            else
+            {
+                changeImage(tile: currTile, newImage: UIImage(named: "icon10")!)
+            }
+        }
         
-        print("Hello World")
         
     }
 
