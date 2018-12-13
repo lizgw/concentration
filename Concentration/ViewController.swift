@@ -52,7 +52,7 @@ class ViewController: UIViewController {
             index+=1
         }
         let currTile:Tile=imageArray[indexSentFrom]
-        if (currTile.subviews[0] as! UIImageView).image != UIImage(named: "back")
+        if (currTile.subviews[currTile.subviews.count-1] as! UIImageView).image != UIImage(named: "back")
         {
             changeImage(tile: currTile, newImage: UIImage(named: "back")!)
         }
