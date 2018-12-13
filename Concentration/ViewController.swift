@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     //how to create a tile
     var tap = UITapGestureRecognizer()
     @IBOutlet var imageArray: [Tile]!
+    var firstSelected: Int!
+    var secondSelected: Int!
     
     func createTile(image:String,id:Int,tile:Tile)
     {
@@ -48,9 +50,11 @@ class ViewController: UIViewController {
             if sender.view == imageArray[index]
             {
                 indexSentFrom=index
+                firstSelected = index
             }
             index+=1
         }
+        
         let currTile:Tile=imageArray[indexSentFrom]
         if (currTile.subviews[currTile.subviews.count-1] as! UIImageView).image != UIImage(named: "back")
         {
