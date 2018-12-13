@@ -31,6 +31,7 @@ class ViewController: UIViewController {
         {
             createTile(image: "back", id: 1, tile: tile)
         }
+        print("view loaded")
         // Do any additional setup after loading the view, typically from a nib.
     }
     //to change image
@@ -39,6 +40,7 @@ class ViewController: UIViewController {
         tile.addArrangedSubview(UIImageView.init(image:newImage))
     }
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
+        print("This happened")
         var indexSentFrom:Int=0
         var index=0
         while index<20
