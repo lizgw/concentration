@@ -115,10 +115,18 @@
                                     <constraint firstItem="fcf-sF-BZK" firstAttribute="height" secondItem="pfv-GE-Eq4" secondAttribute="height" id="sNG-OW-PmH"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UyL-ZG-5PE">
+                                <rect key="frame" x="164.5" y="30" width="46" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="UyL-ZG-5PE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="IXF-JP-4cZ"/>
                             <constraint firstAttribute="trailing" secondItem="thl-Qb-aSH" secondAttribute="trailing" id="Poc-ZW-A1E"/>
+                            <constraint firstItem="UyL-ZG-5PE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="exD-Uw-gFX"/>
                             <constraint firstAttribute="bottom" secondItem="thl-Qb-aSH" secondAttribute="bottom" id="f0Y-A4-1xj"/>
                             <constraint firstItem="thl-Qb-aSH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="50" id="iXc-Jy-NWc"/>
                             <constraint firstItem="thl-Qb-aSH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mwL-3k-Ybl"/>
@@ -127,6 +135,7 @@
                     </view>
                     <connections>
                         <outlet property="mainStackView" destination="thl-Qb-aSH" id="hq4-zt-il9"/>
+                        <outlet property="timerLabel" destination="UyL-ZG-5PE" id="euP-9w-PD3"/>
                         <outletCollection property="imageArray" destination="zjh-CO-vfK" collectionClass="NSMutableArray" id="chu-TG-0oe"/>
                         <outletCollection property="imageArray" destination="lXp-1b-NKW" collectionClass="NSMutableArray" id="njY-gB-mAP"/>
                         <outletCollection property="imageArray" destination="r3C-yw-jNQ" collectionClass="NSMutableArray" id="TT7-BL-kXh"/>
