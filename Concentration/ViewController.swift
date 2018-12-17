@@ -9,6 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var timerLabel: UILabel!
+    
     //how to create a tile
     var tap = UITapGestureRecognizer()
     @IBOutlet var imageArray: [Tile]!
@@ -128,6 +131,13 @@ class ViewController: UIViewController {
             }
         }
     
+    }
+    
+    func updateTimerLabel()
+    {
+        var timeString = ""
+        
+        timerLabel.text = timeString
     }
 
 }
