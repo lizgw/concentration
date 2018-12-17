@@ -27,9 +27,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var tileID = 0
+        let numTiles = 10
         for tile in imageArray
         {
-            createTile(image: "back", id: 1, tile: tile)
+            createTile(image: "back", id: tileID + 1, tile: tile)
+            
+            // loop through all the tiles
+            tileID = (tileID + 1) % numTiles
         }
         
         randomizeLayout()
