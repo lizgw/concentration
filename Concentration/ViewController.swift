@@ -18,9 +18,13 @@ class ViewController: UIViewController {
     var firstSelected: Int!
     var secondSelected: Int!
     
-    // timer
+    // game clock
     var clock:Timer!
     var gameTime = 0 // how long the game has been running, in seconds
+    
+    // card flip timer
+    var flipTimerRunning = false
+    var numFlipped = 0
     
     func createTile(image:String,id:Int,tile:Tile)
     {
@@ -66,41 +70,51 @@ class ViewController: UIViewController {
         return data1.isEqual(data2)
     }
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
-        //print("This happened")
-        //Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false){ timer in print("FireTimer")}
-        var indexSentFrom:Int=0
-        var index=0
-        while index<20
+        // don't handle the tap if we're waiting for the cards to flip back over
+        if (!flipTimerRunning || numFlipped < 2)
         {
-            if sender.view == imageArray[index]
+            //print("This happened")
+            //Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false){ timer in print("FireTimer")}
+            var indexSentFrom:Int=0
+            var index=0
+            while index<20
             {
-                indexSentFrom=index
-                firstSelected = index
+                if sender.view == imageArray[index]
+                {
+                    indexSentFrom=index
+                    firstSelected = index
+                }
+                index+=1
             }
-            index+=1
-        }
-        
-        let currTile:Tile=imageArray[indexSentFrom]
-       let curImage = (currTile.subviews[currTile.subviews.count-1] as! UIImageView).image
-        
-        /*if curImage != UIImage(named: "back")
-        {
-            changeImage(tile: currTile, newImage: UIImage(named: "back")!)
-        }*/
-        if image(image1: curImage!, isEqualTo: UIImage(named: "back")!)
-        {
-            if currTile.getID()<10
+            
+            let currTile:Tile=imageArray[indexSentFrom]
+            let curImage = (currTile.subviews[currTile.subviews.count-1] as! UIImageView).image
+            
+            /*if curImage != UIImage(named: "back")
+             {
+             changeImage(tile: currTile, newImage: UIImage(named: "back")!)
+             }*/
+            if image(image1: curImage!, isEqualTo: UIImage(named: "back")!)
             {
-                changeImage(tile: currTile, newImage: UIImage(named: "icon0\(currTile.getID())")!)
+                if currTile.getID()<10
+                {
+                    changeImage(tile: currTile, newImage: UIImage(named: "icon0\(currTile.getID())")!)
+                }
+                else
+                {
+                    changeImage(tile: currTile, newImage: UIImage(named: "icon10")!)
+                }
             }
-            else
-            {
-                changeImage(tile: currTile, newImage: UIImage(named: "icon10")!)
+            // note that we're starting a timer
+            flipTimerRunning = true
+            numFlipped += 1
+            
+            Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false){ timer in
+                self.changeImage(tile: currTile, newImage: UIImage(named: "back")!)
+                // reset vars when this timer ends
+                self.flipTimerRunning = false
+                self.numFlipped -= 1
             }
-        }
-        
-        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false){ timer in
-            self.changeImage(tile: currTile, newImage: UIImage(named: "back")!)
         }
         
     }
