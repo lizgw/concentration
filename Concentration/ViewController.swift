@@ -28,6 +28,7 @@ class ViewController: UIViewController {
     //end of creating tile
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //example of creating tile
         for tile in imageArray
         {
@@ -36,6 +37,10 @@ class ViewController: UIViewController {
         print("view loaded")
         // Do any additional setup after loading the view, typically from a nib.
     }
+    /*@objc func fireTimer()
+    {
+        print("timer fired")
+    }*/
     //to change image
     func changeImage(tile:Tile,newImage:UIImage)
     {
@@ -48,6 +53,7 @@ class ViewController: UIViewController {
     }
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
         print("This happened")
+        //Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false){ timer in print("FireTimer")}
         var indexSentFrom:Int=0
         var index=0
         while index<20
@@ -62,10 +68,7 @@ class ViewController: UIViewController {
         
         let currTile:Tile=imageArray[indexSentFrom]
        let curImage = (currTile.subviews[currTile.subviews.count-1] as! UIImageView).image
-        if !image(image1: curImage!, isEqualTo: UIImage(named: "back")!)
-        {
-            changeImage(tile: currTile, newImage: UIImage(named: "back")!)
-        }
+        
         /*if curImage != UIImage(named: "back")
         {
             changeImage(tile: currTile, newImage: UIImage(named: "back")!)
@@ -81,7 +84,9 @@ class ViewController: UIViewController {
                 changeImage(tile: currTile, newImage: UIImage(named: "icon10")!)
             }
         }
-        
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false){ timer in
+            self.changeImage(tile: currTile, newImage: UIImage(named: "back")!)
+        }
         
     }
 
