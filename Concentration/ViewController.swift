@@ -56,7 +56,8 @@ class ViewController: UIViewController {
         return data1.isEqual(data2)
     }
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
-        print("This happened")
+        //print("This happened")
+        //Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false){ timer in print("FireTimer")}
         var indexSentFrom:Int=0
         var index=0
         while index<20
@@ -75,11 +76,8 @@ class ViewController: UIViewController {
             index+=1
         }
         let currTile:Tile=imageArray[indexSentFrom]
-        let curImage = (currTile.subviews[currTile.subviews.count-1] as! UIImageView).image
-        if !image(image1: curImage!, isEqualTo: UIImage(named: "back")!)
-        {
-            changeImage(tile: currTile, newImage: UIImage(named: "back")!)
-        }
+       let curImage = (currTile.subviews[currTile.subviews.count-1] as! UIImageView).image
+        
         /*if curImage != UIImage(named: "back")
         {
             changeImage(tile: currTile, newImage: UIImage(named: "back")!)
@@ -104,6 +102,9 @@ class ViewController: UIViewController {
             var equals = imageArray[firstSelected].getID() == imageArray[secondSelected].getID()
         }
         
+        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false){ timer in
+            self.changeImage(tile: currTile, newImage: UIImage(named: "back")!)
+        }
         
     }
     
