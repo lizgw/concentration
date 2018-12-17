@@ -126,6 +126,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="mainStackView" destination="thl-Qb-aSH" id="hq4-zt-il9"/>
                         <outletCollection property="imageArray" destination="zjh-CO-vfK" collectionClass="NSMutableArray" id="chu-TG-0oe"/>
                         <outletCollection property="imageArray" destination="lXp-1b-NKW" collectionClass="NSMutableArray" id="njY-gB-mAP"/>
                         <outletCollection property="imageArray" destination="r3C-yw-jNQ" collectionClass="NSMutableArray" id="TT7-BL-kXh"/>
