@@ -56,7 +56,7 @@ class ViewController: UIViewController {
         return data1.isEqual(data2)
     }
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
-        print("This happened")
+        //print("This happened")
         //Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false){ timer in print("FireTimer")}
         var indexSentFrom:Int=0
         var index=0
@@ -88,7 +88,8 @@ class ViewController: UIViewController {
                 changeImage(tile: currTile, newImage: UIImage(named: "icon10")!)
             }
         }
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false){ timer in
+        
+        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false){ timer in
             self.changeImage(tile: currTile, newImage: UIImage(named: "back")!)
         }
         
