@@ -18,6 +18,9 @@ class ViewController: UIViewController {
     var firstSelected: Int!
     var secondSelected: Int!
     
+    // timer
+    var clock:Timer!
+    
     func createTile(image:String,id:Int,tile:Tile)
     {
         tap = UITapGestureRecognizer(target: self, action: #selector(ViewController.handleTap(_:)))
@@ -45,6 +48,9 @@ class ViewController: UIViewController {
         print("view loaded")
         
         randomizeLayout()
+        
+        // start a countdown timer
+        clock = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(incrementClock), userInfo: nil, repeats: true)
     }
     
     @IBOutlet weak var mainStackView: UIStackView!
@@ -133,10 +139,12 @@ class ViewController: UIViewController {
     
     }
     
-    func updateTimerLabel()
+    @objc func incrementClock()
     {
-        var timeString = ""
+        print("timer fired")
         
+        // update UILabel
+        let timeString = ""
         timerLabel.text = timeString
     }
 
