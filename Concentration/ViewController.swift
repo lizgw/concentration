@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     
     // timer
     var clock:Timer!
+    var gameTime = 0
     
     func createTile(image:String,id:Int,tile:Tile)
     {
@@ -141,10 +142,26 @@ class ViewController: UIViewController {
     
     @objc func incrementClock()
     {
-        print("timer fired")
+        // increment the game time
+        gameTime += 1
         
         // update UILabel
-        let timeString = ""
+        let gameMins = gameTime / 60;
+        let gameSecs = gameTime % 60
+        
+        // add a leading 0 for the seconds value
+        var secLeadingZero = ""
+        if gameSecs < 10 {
+            secLeadingZero = "0"
+        }
+        
+        // add a leading 0 for the minutes value
+        var minLeadingZero = ""
+        if gameMins < 10 {
+            minLeadingZero = "0"
+        }
+        
+        let timeString = "\(minLeadingZero)\(gameMins):\(secLeadingZero)\(gameSecs)"
         timerLabel.text = timeString
     }
 
