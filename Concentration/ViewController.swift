@@ -38,7 +38,6 @@ class ViewController: UIViewController {
         }
         
         randomizeLayout()
-        //print(imageArray.count)
     }
     
     @IBOutlet weak var mainStackView: UIStackView!
@@ -86,63 +85,31 @@ class ViewController: UIViewController {
         var rows = mainStackView.arrangedSubviews
         
         for rowIndex in 0...numRows - 1 {
+            // get the row
             let view: UIView = rows[rowIndex];
-                
+            
+            // remove it
             mainStackView.removeArrangedSubview(view)
             
-            let randomNum = Int.random(in: 0...numRows - 1) // TODO: make sure this stays in bounds
+            // pick a random index
+            let randomNum = Int.random(in: 0...numRows - 1)
             
+            // insert it in that random spot
             mainStackView.insertArrangedSubview(view, at: randomNum)
-        }
-        
-        /*var rows = mainStackView.arrangedSubviews
-        
-        if let rows = rows as? [UIStackView] {
-            for row in rows {
-                row.removeArrangedSubview(<#T##view: UIView##UIView#>)
-            }
-        }*/
-        
-        
-        
-        
-        // shuffle columns in each row
-        
-        // make an array of all the tiles
-        //var tiles: [Tile] = imageArray
-        
-        //print("number of tiles in array: \(tiles.count)")
-        
-        
-        
-        // get values from the grid
-        /*guard let rows = mainStackView.arrangedSubviews as? [UIStackView] else { return }
-        let numCols = mainStackView.arrangedSubviews.count
-        
-        // clear the grid in the UI
-        for row in rows {
-            for stackView in row.arrangedSubviews {
-                // get the view
-                guard let stackView = stackView as? UIStackView else { return }
-                // remove it
-                row.removeArrangedSubview(stackView)
+            
+            // shuffle within the row, same algorithm as above
+            if let stackView = view as? UIStackView {
+                let numCols = stackView.arrangedSubviews.count
+                var cols = stackView.arrangedSubviews
+                
+                for colIndex in 0...numCols - 1 {
+                    let col = cols[colIndex]
+                    stackView.removeArrangedSubview(col)
+                    let randColIndex = Int.random(in: 0...numCols - 1)
+                    stackView.insertArrangedSubview(col, at: randColIndex)
+                }
             }
         }
-    
-        // loop through the grid
-        for row in rows {
-            for _ in 0...numCols {
-                // pick a random tile
-                let randIndex = Int.random(in: 0...tiles.count)
-                let tile:Tile = tiles[randIndex]
-                
-                // add it to the UI
-                row.addArrangedSubview(tile)
-                
-                // remove that tile from the array so it's not picked again
-                tiles.remove(at: randIndex)
-            }
-        }*/
     
     }
     
