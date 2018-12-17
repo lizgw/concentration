@@ -41,6 +41,11 @@ class ViewController: UIViewController {
     {
         tile.addArrangedSubview(UIImageView.init(image:newImage))
     }
+    func image(image1: UIImage, isEqualTo image2: UIImage) -> Bool {
+        let data1: NSData = image1.pngData()! as NSData
+        let data2: NSData = image2.pngData()! as NSData
+        return data1.isEqual(data2)
+    }
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
         print("This happened")
         var indexSentFrom:Int=0
@@ -56,11 +61,16 @@ class ViewController: UIViewController {
         }
         
         let currTile:Tile=imageArray[indexSentFrom]
-        if (currTile.subviews[currTile.subviews.count-1] as! UIImageView).image != UIImage(named: "back")
+       let curImage = (currTile.subviews[currTile.subviews.count-1] as! UIImageView).image
+        if !image(image1: curImage!, isEqualTo: UIImage(named: "back")!)
         {
             changeImage(tile: currTile, newImage: UIImage(named: "back")!)
         }
-        if (currTile.subviews[0] as! UIImageView).image == UIImage(named: "back")
+        /*if curImage != UIImage(named: "back")
+        {
+            changeImage(tile: currTile, newImage: UIImage(named: "back")!)
+        }*/
+        if image(image1: curImage!, isEqualTo: UIImage(named: "back")!)
         {
             if currTile.getID()<10
             {
