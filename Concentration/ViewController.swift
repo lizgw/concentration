@@ -13,6 +13,17 @@ class ViewController: UIViewController {
     var tap = UITapGestureRecognizer()
     @IBOutlet var imageArray: [Tile]!
     var firstSelected: Int!
+        var score = 0
+    
+    @IBOutlet weak var Scoreboard: UILabel!
+    
+    func update(textView: UILabel) { //Handle the text changes here
+        score = score + 1
+        Scoreboard.text = "Score \(score)"
+       // print(textView.text); //the textView parameter is the textView where text was changed
+    }
+    
+    
     var secondSelected: Int!
     
     func createTile(image:String,id:Int,tile:Tile)
@@ -81,6 +92,7 @@ class ViewController: UIViewController {
                 changeImage(tile: currTile, newImage: UIImage(named: "icon10")!)
             }
         }
+        update(textView: Scoreboard)
         
         
     }
