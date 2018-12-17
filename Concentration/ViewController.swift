@@ -28,14 +28,23 @@ class ViewController: UIViewController {
     //end of creating tile
     override func viewDidLoad() {
         super.viewDidLoad()
-        //example of creating tile
+        
+        var tileID = 0
+        let numTiles = 10
         for tile in imageArray
         {
-            createTile(image: "back", id: 1, tile: tile)
+            createTile(image: "back", id: tileID + 1, tile: tile)
+            
+            // loop through all the tiles
+            tileID = (tileID + 1) % numTiles
         }
+        
         print("view loaded")
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        randomizeLayout()
     }
+    
+    @IBOutlet weak var mainStackView: UIStackView!
     //to change image
     func changeImage(tile:Tile,newImage:UIImage)
     {
@@ -83,6 +92,42 @@ class ViewController: UIViewController {
         }
         
         
+    }
+    
+    // all tiles must be in the grid before this
+    func randomizeLayout() {
+        
+        // shuffle rows
+        let numRows = mainStackView.arrangedSubviews.count
+        var rows = mainStackView.arrangedSubviews
+        
+        for rowIndex in 0...numRows - 1 {
+            // get the row
+            let view: UIView = rows[rowIndex];
+            
+            // remove it
+            mainStackView.removeArrangedSubview(view)
+            
+            // pick a random index
+            let randomNum = Int.random(in: 0...numRows - 1)
+            
+            // insert it in that random spot
+            mainStackView.insertArrangedSubview(view, at: randomNum)
+            
+            // shuffle within the row, same algorithm as above
+            if let stackView = view as? UIStackView {
+                let numCols = stackView.arrangedSubviews.count
+                var cols = stackView.arrangedSubviews
+                
+                for colIndex in 0...numCols - 1 {
+                    let col = cols[colIndex]
+                    stackView.removeArrangedSubview(col)
+                    let randColIndex = Int.random(in: 0...numCols - 1)
+                    stackView.insertArrangedSubview(col, at: randColIndex)
+                }
+            }
+        }
+    
     }
 
 }
