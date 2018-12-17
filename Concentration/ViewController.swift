@@ -65,18 +65,29 @@ class ViewController: UIViewController {
             if sender.view == imageArray[index]
             {
                 indexSentFrom=index
-                if (firstSelected != -1){
-                    firstSelected = index
-                }
-                else
-                {
-                    secondSelected = index
-                }
             }
             index+=1
         }
         let currTile:Tile=imageArray[indexSentFrom]
        let curImage = (currTile.subviews[currTile.subviews.count-1] as! UIImageView).image
+        if (firstSelected != -1 && secondSelected != -1)
+        {
+            if !imageArray[firstSelected].matched && !imageArray[secondSelected].matched
+            {
+                self.changeImage(tile: imageArray[firstSelected], newImage: UIImage(named: "back")!)
+                self.changeImage(tile: imageArray[secondSelected], newImage: UIImage(named: "back")!)
+            }
+            firstSelected = -1
+            secondSelected = -1
+        }
+        if (firstSelected == -1)
+        {
+            firstSelected = indexSentFrom
+        }
+        else
+        {
+            secondSelected = indexSentFrom
+        }
         
         /*if curImage != UIImage(named: "back")
         {
@@ -99,11 +110,25 @@ class ViewController: UIViewController {
         
         if (firstSelected != -1 && secondSelected != -1)
         {
-            var equals = imageArray[firstSelected].getID() == imageArray[secondSelected].getID()
+            let equals = imageArray[firstSelected].getID() == imageArray[secondSelected].getID()
+            if (equals)
+            {
+                imageArray[firstSelected].matched = true
+                imageArray[secondSelected].matched = true
+            }
         }
-        
-        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false){ timer in
-            self.changeImage(tile: currTile, newImage: UIImage(named: "back")!)
+        print(firstSelected)
+        print(secondSelected)
+        if (firstSelected != -1 && secondSelected != -1){
+            if (!imageArray[firstSelected].matched && !imageArray[secondSelected].matched)
+            {
+                Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false){ timer in
+                self.changeImage(tile: currTile, newImage: UIImage(named: "back")!)
+                    self.changeImage(tile: self.imageArray[self.firstSelected], newImage: UIImage(named: "back")!)
+                }
+                //firstSelected = -1
+                //secondSelected = -1
+            }
         }
         
     }
