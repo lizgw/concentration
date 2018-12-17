@@ -28,9 +28,4 @@ class Tile: UIStackView {
     {
         return id
     }
-    public func equals(tile: Tile) -> Bool
-    {
-        return self.getID() == tile.getID() //Requires testing
-    }
-    
 }
