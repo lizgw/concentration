@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     //how to create a tile
     var tap = UITapGestureRecognizer()
     @IBOutlet var imageArray: [Tile]!
+    var firstSelected: Int!
+    var secondSelected: Int!
     
     func createTile(image:String,id:Int,tile:Tile)
     {
@@ -31,6 +33,7 @@ class ViewController: UIViewController {
         {
             createTile(image: "back", id: 1, tile: tile)
         }
+        print("view loaded")
         // Do any additional setup after loading the view, typically from a nib.
     }
     //to change image
@@ -44,7 +47,7 @@ class ViewController: UIViewController {
         return data1.isEqual(data2)
     }
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
-        print("happened")
+        print("This happened")
         var indexSentFrom:Int=0
         var index=0
         while index<20
@@ -52,9 +55,11 @@ class ViewController: UIViewController {
             if sender.view == imageArray[index]
             {
                 indexSentFrom=index
+                firstSelected = index
             }
             index+=1
         }
+        
         let currTile:Tile=imageArray[indexSentFrom]
        let curImage = (currTile.subviews[currTile.subviews.count-1] as! UIImageView).image
         if !image(image1: curImage!, isEqualTo: UIImage(named: "back")!)
