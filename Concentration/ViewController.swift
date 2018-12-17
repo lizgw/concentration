@@ -12,8 +12,8 @@ class ViewController: UIViewController {
     //how to create a tile
     var tap = UITapGestureRecognizer()
     @IBOutlet var imageArray: [Tile]!
-    var firstSelected: Int!
-    var secondSelected: Int!
+    var firstSelected = -1
+    var secondSelected = -1
     
     func createTile(image:String,id:Int,tile:Tile)
     {
@@ -64,13 +64,18 @@ class ViewController: UIViewController {
             if sender.view == imageArray[index]
             {
                 indexSentFrom=index
-                firstSelected = index
+                if (firstSelected != -1){
+                    firstSelected = index
+                }
+                else
+                {
+                    secondSelected = index
+                }
             }
             index+=1
         }
-        
         let currTile:Tile=imageArray[indexSentFrom]
-       let curImage = (currTile.subviews[currTile.subviews.count-1] as! UIImageView).image
+        let curImage = (currTile.subviews[currTile.subviews.count-1] as! UIImageView).image
         if !image(image1: curImage!, isEqualTo: UIImage(named: "back")!)
         {
             changeImage(tile: currTile, newImage: UIImage(named: "back")!)
@@ -81,14 +86,22 @@ class ViewController: UIViewController {
         }*/
         if image(image1: curImage!, isEqualTo: UIImage(named: "back")!)
         {
-            if currTile.getID()<10
+            var currTileID: String
+            if (currTile.getID() < 10)
             {
-                changeImage(tile: currTile, newImage: UIImage(named: "icon0\(currTile.getID())")!)
+                currTileID = "0\(currTile.getID())"
             }
             else
             {
-                changeImage(tile: currTile, newImage: UIImage(named: "icon10")!)
+                currTileID = "\(currTile.getID())"
             }
+            changeImage(tile: currTile, newImage: UIImage(named: "icon\(currTileID)")!)
+            
+        }
+        
+        if (firstSelected != -1 && secondSelected != -1)
+        {
+            var equals = imageArray[firstSelected].getID() == imageArray[secondSelected].getID()
         }
         
         
