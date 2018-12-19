@@ -156,6 +156,7 @@ class ViewController: UIViewController {
             {
                 imageArray[firstSelected].matched = true
                 imageArray[secondSelected].matched = true
+                update(textView: scoreboard)
             }
         }
         print(firstSelected)
