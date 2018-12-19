@@ -126,7 +126,7 @@
                                 <state key="normal" image="pause"/>
                                 <connections>
                                     <action selector="pauseButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WYf-3r-E0x"/>
-                                    <segue destination="c2J-xD-VtN" kind="show" id="y9O-n3-X61"/>
+                                    <segue destination="c2J-xD-VtN" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="dmE-9X-EHM"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -169,6 +169,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="Bok-Q6-bBn" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="133.59999999999999" y="133.5832083958021"/>
         </scene>
@@ -191,7 +192,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Resume Game"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="7Yj-7r-ipn"/>
+                                    <segue destination="Bok-Q6-bBn" kind="unwind" unwindAction="unwindToThisViewControllerWithSegue:" id="lY6-77-0iX"/>
                                 </connections>
                             </button>
                         </subviews>

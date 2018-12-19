@@ -191,5 +191,10 @@ class ViewController: UIViewController {
         clockPaused = !clockPaused
     }
     
+    // called when going back to the game view from the pause view
+    @IBAction func unwindToThisViewController(segue: UIStoryboardSegue) {
+        clockPaused = false
+    }
+    
 }
 
