@@ -121,6 +121,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: 0 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFP-D9-3fn">
+                                <rect key="frame" x="28" y="25" width="70" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -134,6 +141,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="Scoreboard" destination="QFP-D9-3fn" id="i6B-PO-HKB"/>
                         <outlet property="mainStackView" destination="thl-Qb-aSH" id="hq4-zt-il9"/>
                         <outlet property="timerLabel" destination="UyL-ZG-5PE" id="euP-9w-PD3"/>
                         <outletCollection property="imageArray" destination="zjh-CO-vfK" collectionClass="NSMutableArray" id="chu-TG-0oe"/>

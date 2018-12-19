@@ -96,6 +96,7 @@ class ViewController: UIViewController {
                     firstSelected = index
                 }
                 index+=1
+                
             }
             
             let currTile:Tile=imageArray[indexSentFrom]
@@ -127,7 +128,7 @@ class ViewController: UIViewController {
                 self.numFlipped -= 1
             }
         }
-        update(textView: Scoreboard)
+        
         
     }
     
