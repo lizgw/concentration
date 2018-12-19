@@ -12,6 +12,7 @@ class Tile: UIStackView {
     //MARK: Initialization
    // let tapGesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
     private var id:Int=0
+    public var matched:Bool=false
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -32,5 +33,6 @@ class Tile: UIStackView {
     {
         return self.getID() == tile.getID()
     }
+    
     
 }
