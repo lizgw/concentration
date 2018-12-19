@@ -205,13 +205,19 @@
                                     <segue destination="Bok-Q6-bBn" kind="unwind" unwindAction="unwindToThisViewControllerWithSegue:" id="lY6-77-0iX"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUB-qr-05u">
+                                <rect key="frame" x="97" y="179" width="126" height="30"/>
+                                <state key="normal" title="Quit to Main Menu"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="dUB-qr-05u" firstAttribute="centerX" secondItem="Kug-39-sbe" secondAttribute="centerX" id="PxH-uu-QQ2"/>
                             <constraint firstItem="aIA-Kj-PmG" firstAttribute="top" secondItem="feZ-Yd-CUW" secondAttribute="top" constant="30" id="apb-9I-zCn"/>
                             <constraint firstItem="CTk-6d-dvw" firstAttribute="top" secondItem="aIA-Kj-PmG" secondAttribute="bottom" constant="50" id="i9h-7m-feq"/>
                             <constraint firstItem="aIA-Kj-PmG" firstAttribute="centerX" secondItem="Kug-39-sbe" secondAttribute="centerX" id="stJ-6l-AqG"/>
                             <constraint firstItem="CTk-6d-dvw" firstAttribute="centerX" secondItem="Kug-39-sbe" secondAttribute="centerX" id="ucw-Ie-BFR"/>
+                            <constraint firstItem="dUB-qr-05u" firstAttribute="top" secondItem="CTk-6d-dvw" secondAttribute="bottom" constant="15" id="ya1-if-W89"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="feZ-Yd-CUW"/>
                     </view>
