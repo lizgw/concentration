@@ -126,6 +126,7 @@
                                 <state key="normal" image="pause"/>
                                 <connections>
                                     <action selector="pauseButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WYf-3r-E0x"/>
+                                    <segue destination="c2J-xD-VtN" kind="show" id="y9O-n3-X61"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -170,6 +171,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="133.59999999999999" y="133.5832083958021"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="7pW-vd-a7l">
+            <objects>
+                <viewController id="c2J-xD-VtN" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Kug-39-sbe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Paused" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIA-Kj-PmG">
+                                <rect key="frame" x="82" y="50" width="156" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CTk-6d-dvw">
+                                <rect key="frame" x="107" y="132" width="106" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Resume Game"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="7Yj-7r-ipn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="aIA-Kj-PmG" firstAttribute="top" secondItem="feZ-Yd-CUW" secondAttribute="top" constant="30" id="apb-9I-zCn"/>
+                            <constraint firstItem="CTk-6d-dvw" firstAttribute="top" secondItem="aIA-Kj-PmG" secondAttribute="bottom" constant="50" id="i9h-7m-feq"/>
+                            <constraint firstItem="aIA-Kj-PmG" firstAttribute="centerX" secondItem="Kug-39-sbe" secondAttribute="centerX" id="stJ-6l-AqG"/>
+                            <constraint firstItem="CTk-6d-dvw" firstAttribute="centerX" secondItem="Kug-39-sbe" secondAttribute="centerX" id="ucw-Ie-BFR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="feZ-Yd-CUW"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4DB-vr-ji6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="971" y="133"/>
         </scene>
     </scenes>
     <resources>
