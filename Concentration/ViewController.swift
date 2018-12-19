@@ -32,6 +32,7 @@ class ViewController: UIViewController {
     // game clock
     var clock:Timer!
     var gameTime = 0 // how long the game has been running, in seconds
+    var clockPaused = false
     
     // card flip timer
     var flipTimerRunning = false
@@ -83,103 +84,102 @@ class ViewController: UIViewController {
     }
     
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
-        if secondSelected != -1
-        {
+        if secondSelected != -1 {
             return
         }
-        
-        //print("This happened")
-        //Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false){ timer in print("FireTimer")}
-        var indexSentFrom:Int=0
-        var index=0
-        while index<20
-        {
-            if sender.view == imageArray[index]
+        // don't handle the tap if we're waiting for the cards to flip back over or if the game is paused
+        if (!flipTimerRunning || numFlipped < 2) && !clockPaused {
+            //print("This happened")
+            //Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false){ timer in print("FireTimer")}
+            var indexSentFrom:Int=0
+            var index=0
+            while index<20
             {
-                indexSentFrom=index
+                if sender.view == imageArray[index]
+                {
+                    indexSentFrom=index
+                }
+                index+=1
             }
-            index+=1
-        }
-        if indexSentFrom == firstSelected
-        {
-            return
-        }
-        let currTile:Tile=imageArray[indexSentFrom]
-        let curImage = (currTile.subviews[currTile.subviews.count-1] as! UIImageView).image
-        
-        /*if firstSelected != -1 && secondSelected != -1
-        {
-            if !imageArray[firstSelected].matched
+            if indexSentFrom == firstSelected
             {
-                self.changeImage(tile: imageArray[firstSelected], newImage: UIImage(named: "back")!)
+                return
             }
-            if !imageArray[secondSelected].matched
+            let currTile:Tile=imageArray[indexSentFrom]
+            let curImage = (currTile.subviews[currTile.subviews.count-1] as! UIImageView).image
+            
+            /*if firstSelected != -1 && secondSelected != -1
+             {
+             if !imageArray[firstSelected].matched
+             {
+             self.changeImage(tile: imageArray[firstSelected], newImage: UIImage(named: "back")!)
+             }
+             if !imageArray[secondSelected].matched
+             {
+             self.changeImage(tile: imageArray[secondSelected], newImage: UIImage(named: "back")!)
+             }
+             firstSelected = -1
+             secondSelected = -1
+             }*/
+            
+            if firstSelected == -1
             {
-                self.changeImage(tile: imageArray[secondSelected], newImage: UIImage(named: "back")!)
-            }
-            firstSelected = -1
-            secondSelected = -1
-        }*/
-        
-        if firstSelected == -1
-        {
-            firstSelected = indexSentFrom
-        }
-        else
-        {
-            secondSelected = indexSentFrom
-        }
-        
-        /*if curImage != UIImage(named: "back")
-        {
-            changeImage(tile: currTile, newImage: UIImage(named: "back")!)
-        }*/
-        if image(image1: curImage!, isEqualTo: UIImage(named: "back")!)
-        {
-            var currTileID: String
-            if (currTile.getID() < 10)
-            {
-                currTileID = "0\(currTile.getID())"
+                firstSelected = indexSentFrom
             }
             else
             {
-                currTileID = "\(currTile.getID())"
+                secondSelected = indexSentFrom
             }
-            changeImage(tile: currTile, newImage: UIImage(named: "icon\(currTileID)")!)
             
-        }
-        
-        if (firstSelected != -1 && secondSelected != -1)
-        {
-            let equals = imageArray[firstSelected].getID() == imageArray[secondSelected].getID()
-            if (equals)
+            /*if curImage != UIImage(named: "back")
+             {
+             changeImage(tile: currTile, newImage: UIImage(named: "back")!)
+             }*/
+            if image(image1: curImage!, isEqualTo: UIImage(named: "back")!)
             {
-                imageArray[firstSelected].matched = true
-                imageArray[secondSelected].matched = true
+                var currTileID: String
+                if (currTile.getID() < 10)
+                {
+                    currTileID = "0\(currTile.getID())"
+                }
+                else
+                {
+                    currTileID = "\(currTile.getID())"
+                }
+                changeImage(tile: currTile, newImage: UIImage(named: "icon\(currTileID)")!)
+                
             }
-        }
-        print(firstSelected)
-        print(secondSelected)
-        if (firstSelected != -1 && secondSelected != -1){
-            if (!imageArray[firstSelected].matched && !imageArray[secondSelected].matched)
+            
+            if (firstSelected != -1 && secondSelected != -1)
             {
-                Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false){ timer in
-                    self.changeImage(tile: currTile, newImage: UIImage(named: "back")!)
-                    self.changeImage(tile: self.imageArray[self.firstSelected], newImage: UIImage(named: "back")!)
+                let equals = imageArray[firstSelected].getID() == imageArray[secondSelected].getID()
+                if (equals)
+                {
+                    imageArray[firstSelected].matched = true
+                    imageArray[secondSelected].matched = true
+                }
+            }
+            print(firstSelected)
+            print(secondSelected)
+            if (firstSelected != -1 && secondSelected != -1){
+                if (!imageArray[firstSelected].matched && !imageArray[secondSelected].matched)
+                {
+                    Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false){ timer in
+                        self.changeImage(tile: currTile, newImage: UIImage(named: "back")!)
+                        self.changeImage(tile: self.imageArray[self.firstSelected], newImage: UIImage(named: "back")!)
+                        self.firstSelected = -1
+                        self.secondSelected = -1
+                    }
+                    //firstSelected = -1
+                    //secondSelected = -1
+                }
+                else
+                {
                     self.firstSelected = -1
                     self.secondSelected = -1
                 }
-                //firstSelected = -1
-                //secondSelected = -1
-            }
-            else
-            {
-                self.firstSelected = -1
-                self.secondSelected = -1
             }
         }
-        
-        
     }
     
     // all tiles must be in the grid before this
@@ -220,28 +220,43 @@ class ViewController: UIViewController {
     
     @objc func incrementClock()
     {
-        // increment the game time
-        gameTime += 1
-        
-        // find min and sec values
-        let gameMins = gameTime / 60;
-        let gameSecs = gameTime % 60
-        
-        // add a leading 0 for the seconds value
-        var secLeadingZero = ""
-        if gameSecs < 10 {
-            secLeadingZero = "0"
+        if (!clockPaused) {
+            // increment the game time
+            gameTime += 1
+            
+            // find min and sec values
+            let gameMins = gameTime / 60;
+            let gameSecs = gameTime % 60
+            
+            // add a leading 0 for the seconds value
+            var secLeadingZero = ""
+            if gameSecs < 10 {
+                secLeadingZero = "0"
+            }
+            
+            // add a leading 0 for the minutes value
+            var minLeadingZero = ""
+            if gameMins < 10 {
+                minLeadingZero = "0"
+            }
+            
+            // update display
+            timerLabel.text = "\(minLeadingZero)\(gameMins):\(secLeadingZero)\(gameSecs)"
         }
         
-        // add a leading 0 for the minutes value
-        var minLeadingZero = ""
-        if gameMins < 10 {
-            minLeadingZero = "0"
-        }
-        
-        // update display
-        timerLabel.text = "\(minLeadingZero)\(gameMins):\(secLeadingZero)\(gameSecs)"
     }
-
+    
+    @IBAction func pauseButtonTapped(_ sender: UIButton) {
+        //print("pause button pressed")
+        
+        // stop the game clock
+        clockPaused = !clockPaused
+    }
+    
+    // called when going back to the game view from the pause view
+    @IBAction func unwindToThisViewController(segue: UIStoryboardSegue) {
+        clockPaused = false
+    }
+    
 }
 
