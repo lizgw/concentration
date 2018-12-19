@@ -9,11 +9,22 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var timerLabel: UILabel!
+    
     //how to create a tile
     var tap = UITapGestureRecognizer()
     @IBOutlet var imageArray: [Tile]!
     var firstSelected = -1
     var secondSelected = -1
+    
+    // game clock
+    var clock:Timer!
+    var gameTime = 0 // how long the game has been running, in seconds
+    
+    // card flip timer
+    var flipTimerRunning = false
+    var numFlipped = 0
     
     func createTile(image:String,id:Int,tile:Tile)
     {
@@ -42,6 +53,9 @@ class ViewController: UIViewController {
         print("view loaded")
         
         randomizeLayout()
+        
+        // start a countdown timer
+        clock = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(incrementClock), userInfo: nil, repeats: true)
     }
     
     @IBOutlet weak var mainStackView: UIStackView!
@@ -190,6 +204,31 @@ class ViewController: UIViewController {
             }
         }
     
+    }
+    
+    @objc func incrementClock()
+    {
+        // increment the game time
+        gameTime += 1
+        
+        // find min and sec values
+        let gameMins = gameTime / 60;
+        let gameSecs = gameTime % 60
+        
+        // add a leading 0 for the seconds value
+        var secLeadingZero = ""
+        if gameSecs < 10 {
+            secLeadingZero = "0"
+        }
+        
+        // add a leading 0 for the minutes value
+        var minLeadingZero = ""
+        if gameMins < 10 {
+            minLeadingZero = "0"
+        }
+        
+        // update display
+        timerLabel.text = "\(minLeadingZero)\(gameMins):\(secLeadingZero)\(gameSecs)"
     }
 
 }
