@@ -179,6 +179,10 @@ class ViewController: UIViewController {
         // update display
         timerLabel.text = "\(minLeadingZero)\(gameMins):\(secLeadingZero)\(gameSecs)"
     }
-
+    
+    @IBAction func pauseButtonTapped(_ sender: UIButton) {
+        print("pause button pressed")
+    }
+    
 }
 
