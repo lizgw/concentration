@@ -125,6 +125,13 @@
                                 <rect key="frame" x="287" y="26" width="25" height="25"/>
                                 <state key="normal" image="pause"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scoreboard: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTT-c8-cPa">
+                                <rect key="frame" x="0.0" y="23" width="129" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -141,6 +148,7 @@
                     </view>
                     <connections>
                         <outlet property="mainStackView" destination="thl-Qb-aSH" id="hq4-zt-il9"/>
+                        <outlet property="scoreboard" destination="pTT-c8-cPa" id="M0n-YZ-aC6"/>
                         <outlet property="timerLabel" destination="UyL-ZG-5PE" id="euP-9w-PD3"/>
                         <outletCollection property="imageArray" destination="zjh-CO-vfK" collectionClass="NSMutableArray" id="chu-TG-0oe"/>
                         <outletCollection property="imageArray" destination="lXp-1b-NKW" collectionClass="NSMutableArray" id="njY-gB-mAP"/>
@@ -166,7 +174,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="133.59999999999999" y="133.5832083958021"/>
+            <point key="canvasLocation" x="133.125" y="133.09859154929578"/>
         </scene>
     </scenes>
     <resources>

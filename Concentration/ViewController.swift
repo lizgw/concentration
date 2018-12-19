@@ -18,11 +18,11 @@ class ViewController: UIViewController {
     var firstSelected: Int!
         var score = 0
     
-    @IBOutlet weak var Scoreboard: UILabel!
     
+    @IBOutlet weak var scoreboard: UILabel!
     func update(textView: UILabel) { //Handle the text changes here
         score = score + 1
-        Scoreboard.text = "Score \(score)"
+        scoreboard.text = "Score \(score)"
        // print(textView.text); //the textView parameter is the textView where text was changed
     }
     
