@@ -50,12 +50,19 @@ class ViewController: UIViewController {
     {
         tile.addArrangedSubview(UIImageView.init(image:newImage))
     }
+    
     func image(image1: UIImage, isEqualTo image2: UIImage) -> Bool {
         let data1: NSData = image1.pngData()! as NSData
         let data2: NSData = image2.pngData()! as NSData
         return data1.isEqual(data2)
     }
+    
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
+        if secondSelected != -1
+        {
+            return
+        }
+        
         //print("This happened")
         //Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false){ timer in print("FireTimer")}
         var indexSentFrom:Int=0
@@ -68,19 +75,28 @@ class ViewController: UIViewController {
             }
             index+=1
         }
-        let currTile:Tile=imageArray[indexSentFrom]
-       let curImage = (currTile.subviews[currTile.subviews.count-1] as! UIImageView).image
-        if (firstSelected != -1 && secondSelected != -1)
+        if indexSentFrom == firstSelected
         {
-            if !imageArray[firstSelected].matched && !imageArray[secondSelected].matched
+            return
+        }
+        let currTile:Tile=imageArray[indexSentFrom]
+        let curImage = (currTile.subviews[currTile.subviews.count-1] as! UIImageView).image
+        
+        /*if firstSelected != -1 && secondSelected != -1
+        {
+            if !imageArray[firstSelected].matched
             {
                 self.changeImage(tile: imageArray[firstSelected], newImage: UIImage(named: "back")!)
+            }
+            if !imageArray[secondSelected].matched
+            {
                 self.changeImage(tile: imageArray[secondSelected], newImage: UIImage(named: "back")!)
             }
             firstSelected = -1
             secondSelected = -1
-        }
-        if (firstSelected == -1)
+        }*/
+        
+        if firstSelected == -1
         {
             firstSelected = indexSentFrom
         }
@@ -122,12 +138,19 @@ class ViewController: UIViewController {
         if (firstSelected != -1 && secondSelected != -1){
             if (!imageArray[firstSelected].matched && !imageArray[secondSelected].matched)
             {
-                Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false){ timer in
-                self.changeImage(tile: currTile, newImage: UIImage(named: "back")!)
+                Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false){ timer in
+                    self.changeImage(tile: currTile, newImage: UIImage(named: "back")!)
                     self.changeImage(tile: self.imageArray[self.firstSelected], newImage: UIImage(named: "back")!)
+                    self.firstSelected = -1
+                    self.secondSelected = -1
                 }
                 //firstSelected = -1
                 //secondSelected = -1
+            }
+            else
+            {
+                self.firstSelected = -1
+                self.secondSelected = -1
             }
         }
         
