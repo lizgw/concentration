@@ -71,8 +71,8 @@ class ViewController: UIViewController {
         return data1.isEqual(data2)
     }
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
-        // don't handle the tap if we're waiting for the cards to flip back over
-        if (!flipTimerRunning || numFlipped < 2)
+        // don't handle the tap if we're waiting for the cards to flip back over or if the game is paused
+        if (!flipTimerRunning || numFlipped < 2) && !clockPaused
         {
             //print("This happened")
             //Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false){ timer in print("FireTimer")}
@@ -185,7 +185,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func pauseButtonTapped(_ sender: UIButton) {
-        print("pause button pressed")
+        //print("pause button pressed")
         
         // stop the game clock
         clockPaused = !clockPaused
