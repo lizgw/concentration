@@ -15,8 +15,19 @@ class ViewController: UIViewController {
     //how to create a tile
     var tap = UITapGestureRecognizer()
     @IBOutlet var imageArray: [Tile]!
-    var firstSelected = -1
-    var secondSelected = -1
+    var firstSelected: Int!
+        var score = 0
+    
+    @IBOutlet weak var Scoreboard: UILabel!
+    
+    func update(textView: UILabel) { //Handle the text changes here
+        score = score + 1
+        Scoreboard.text = "Score \(score)"
+       // print(textView.text); //the textView parameter is the textView where text was changed
+    }
+    
+    
+    var secondSelected: Int!
     
     // game clock
     var clock:Timer!
@@ -167,6 +178,7 @@ class ViewController: UIViewController {
                 self.secondSelected = -1
             }
         }
+        
         
     }
     
