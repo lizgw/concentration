@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,94 +15,94 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Concentration" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="thl-Qb-aSH">
-                                <rect key="frame" x="0.0" y="50" width="375" height="617"/>
+                                <rect key="frame" x="0.0" y="50" width="320" height="518"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="oLm-ri-kyc">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="123.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="103.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zjh-CO-vfK" customClass="Tile" customModule="Concentration" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="94" height="123.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="103.5"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lXp-1b-NKW" customClass="Tile" customModule="Concentration" customModuleProvider="target">
-                                                <rect key="frame" x="94" y="0.0" width="93.5" height="123.5"/>
+                                                <rect key="frame" x="80" y="0.0" width="80" height="103.5"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r3C-yw-jNQ" customClass="Tile" customModule="Concentration" customModuleProvider="target">
-                                                <rect key="frame" x="187.5" y="0.0" width="94" height="123.5"/>
+                                                <rect key="frame" x="160" y="0.0" width="80" height="103.5"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eyZ-vk-Yu4" customClass="Tile" customModule="Concentration" customModuleProvider="target">
-                                                <rect key="frame" x="281.5" y="0.0" width="93.5" height="123.5"/>
+                                                <rect key="frame" x="240" y="0.0" width="80" height="103.5"/>
                                             </stackView>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fcf-sF-BZK">
-                                        <rect key="frame" x="0.0" y="123.5" width="375" height="123.5"/>
+                                        <rect key="frame" x="0.0" y="103.5" width="320" height="103.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UHw-CY-ACe" customClass="Tile" customModule="Concentration" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="94" height="123.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="103.5"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eOG-ed-qmr" customClass="Tile" customModule="Concentration" customModuleProvider="target">
-                                                <rect key="frame" x="94" y="0.0" width="93.5" height="123.5"/>
+                                                <rect key="frame" x="80" y="0.0" width="80" height="103.5"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SSL-vL-AZO" customClass="Tile" customModule="Concentration" customModuleProvider="target">
-                                                <rect key="frame" x="187.5" y="0.0" width="94" height="123.5"/>
+                                                <rect key="frame" x="160" y="0.0" width="80" height="103.5"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rBf-YV-rCx" customClass="Tile" customModule="Concentration" customModuleProvider="target">
-                                                <rect key="frame" x="281.5" y="0.0" width="93.5" height="123.5"/>
+                                                <rect key="frame" x="240" y="0.0" width="80" height="103.5"/>
                                             </stackView>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="pfv-GE-Eq4">
-                                        <rect key="frame" x="0.0" y="247" width="375" height="123"/>
+                                        <rect key="frame" x="0.0" y="207" width="320" height="104"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Azp-Eo-M2P" customClass="Tile" customModule="Concentration" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="94" height="123"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="104"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fsi-4z-eBM" customClass="Tile" customModule="Concentration" customModuleProvider="target">
-                                                <rect key="frame" x="94" y="0.0" width="93.5" height="123"/>
+                                                <rect key="frame" x="80" y="0.0" width="80" height="104"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tB3-ss-zpK" customClass="Tile" customModule="Concentration" customModuleProvider="target">
-                                                <rect key="frame" x="187.5" y="0.0" width="94" height="123"/>
+                                                <rect key="frame" x="160" y="0.0" width="80" height="104"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8gY-yo-sdC" customClass="Tile" customModule="Concentration" customModuleProvider="target">
-                                                <rect key="frame" x="281.5" y="0.0" width="93.5" height="123"/>
+                                                <rect key="frame" x="240" y="0.0" width="80" height="104"/>
                                             </stackView>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="nfd-V9-zfa">
-                                        <rect key="frame" x="0.0" y="370" width="375" height="123.5"/>
+                                        <rect key="frame" x="0.0" y="311" width="320" height="103.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iki-Fh-noJ" customClass="Tile" customModule="Concentration" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="94" height="123.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="103.5"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qPM-c3-X0E" customClass="Tile" customModule="Concentration" customModuleProvider="target">
-                                                <rect key="frame" x="94" y="0.0" width="93.5" height="123.5"/>
+                                                <rect key="frame" x="80" y="0.0" width="80" height="103.5"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="adS-eN-2eb" customClass="Tile" customModule="Concentration" customModuleProvider="target">
-                                                <rect key="frame" x="187.5" y="0.0" width="94" height="123.5"/>
+                                                <rect key="frame" x="160" y="0.0" width="80" height="103.5"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vqp-RB-Vo4" customClass="Tile" customModule="Concentration" customModuleProvider="target">
-                                                <rect key="frame" x="281.5" y="0.0" width="93.5" height="123.5"/>
+                                                <rect key="frame" x="240" y="0.0" width="80" height="103.5"/>
                                             </stackView>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="pdC-5d-Taj">
-                                        <rect key="frame" x="0.0" y="493.5" width="375" height="123.5"/>
+                                        <rect key="frame" x="0.0" y="414.5" width="320" height="103.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lQn-W8-sTj" customClass="Tile" customModule="Concentration" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="94" height="123.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="103.5"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qbm-QX-Mcs" customClass="Tile" customModule="Concentration" customModuleProvider="target">
-                                                <rect key="frame" x="94" y="0.0" width="93.5" height="123.5"/>
+                                                <rect key="frame" x="80" y="0.0" width="80" height="103.5"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ef5-nJ-Fg1" customClass="Tile" customModule="Concentration" customModuleProvider="target">
-                                                <rect key="frame" x="187.5" y="0.0" width="94" height="123.5"/>
+                                                <rect key="frame" x="160" y="0.0" width="80" height="103.5"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NEt-iw-62Z" customClass="Tile" customModule="Concentration" customModuleProvider="target">
-                                                <rect key="frame" x="281.5" y="0.0" width="93.5" height="123.5"/>
+                                                <rect key="frame" x="240" y="0.0" width="80" height="103.5"/>
                                             </stackView>
                                         </subviews>
                                     </stackView>
@@ -116,32 +116,30 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UyL-ZG-5PE">
-                                <rect key="frame" x="164.5" y="30" width="46" height="20.5"/>
+                                <rect key="frame" x="137" y="30" width="46" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: 0 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFP-D9-3fn">
-                                <rect key="frame" x="28" y="25" width="70" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lNx-Mc-PV5">
+                                <rect key="frame" x="287" y="26" width="25" height="25"/>
+                                <state key="normal" image="pause"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="lNx-Mc-PV5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="6" id="7YL-Up-hpD"/>
                             <constraint firstItem="UyL-ZG-5PE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="IXF-JP-4cZ"/>
                             <constraint firstAttribute="trailing" secondItem="thl-Qb-aSH" secondAttribute="trailing" id="Poc-ZW-A1E"/>
                             <constraint firstItem="UyL-ZG-5PE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="exD-Uw-gFX"/>
                             <constraint firstAttribute="bottom" secondItem="thl-Qb-aSH" secondAttribute="bottom" id="f0Y-A4-1xj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lNx-Mc-PV5" secondAttribute="trailing" constant="8" id="h5A-GH-xcx"/>
                             <constraint firstItem="thl-Qb-aSH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="50" id="iXc-Jy-NWc"/>
                             <constraint firstItem="thl-Qb-aSH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mwL-3k-Ybl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="Scoreboard" destination="QFP-D9-3fn" id="i6B-PO-HKB"/>
                         <outlet property="mainStackView" destination="thl-Qb-aSH" id="hq4-zt-il9"/>
                         <outlet property="timerLabel" destination="UyL-ZG-5PE" id="euP-9w-PD3"/>
                         <outletCollection property="imageArray" destination="zjh-CO-vfK" collectionClass="NSMutableArray" id="chu-TG-0oe"/>
@@ -171,4 +169,7 @@
             <point key="canvasLocation" x="133.59999999999999" y="133.5832083958021"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pause" width="25" height="25"/>
+    </resources>
 </document>
