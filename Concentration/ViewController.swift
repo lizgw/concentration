@@ -15,7 +15,8 @@ class ViewController: UIViewController {
     //how to create a tile
     var tap = UITapGestureRecognizer()
     @IBOutlet var imageArray: [Tile]!
-    var firstSelected: Int!
+    var firstSelected = -1
+    var secondSelected = -1
         var score = 0
     
     @IBOutlet weak var Scoreboard: UILabel!
@@ -27,7 +28,6 @@ class ViewController: UIViewController {
     }
     
     
-    var secondSelected: Int!
     
     // game clock
     var clock:Timer!
