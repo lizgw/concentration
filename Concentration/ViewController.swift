@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     // game clock
     var clock:Timer!
     var gameTime = 0 // how long the game has been running, in seconds
+    var clockPaused = false
     
     // card flip timer
     var flipTimerRunning = false
@@ -157,31 +158,37 @@ class ViewController: UIViewController {
     
     @objc func incrementClock()
     {
-        // increment the game time
-        gameTime += 1
-        
-        // find min and sec values
-        let gameMins = gameTime / 60;
-        let gameSecs = gameTime % 60
-        
-        // add a leading 0 for the seconds value
-        var secLeadingZero = ""
-        if gameSecs < 10 {
-            secLeadingZero = "0"
+        if (!clockPaused) {
+            // increment the game time
+            gameTime += 1
+            
+            // find min and sec values
+            let gameMins = gameTime / 60;
+            let gameSecs = gameTime % 60
+            
+            // add a leading 0 for the seconds value
+            var secLeadingZero = ""
+            if gameSecs < 10 {
+                secLeadingZero = "0"
+            }
+            
+            // add a leading 0 for the minutes value
+            var minLeadingZero = ""
+            if gameMins < 10 {
+                minLeadingZero = "0"
+            }
+            
+            // update display
+            timerLabel.text = "\(minLeadingZero)\(gameMins):\(secLeadingZero)\(gameSecs)"
         }
         
-        // add a leading 0 for the minutes value
-        var minLeadingZero = ""
-        if gameMins < 10 {
-            minLeadingZero = "0"
-        }
-        
-        // update display
-        timerLabel.text = "\(minLeadingZero)\(gameMins):\(secLeadingZero)\(gameSecs)"
     }
     
     @IBAction func pauseButtonTapped(_ sender: UIButton) {
         print("pause button pressed")
+        
+        // stop the game clock
+        clockPaused = !clockPaused
     }
     
 }
