@@ -19,11 +19,11 @@ class ViewController: UIViewController {
     var secondSelected = -1
         var score = 0
     
-    @IBOutlet weak var Scoreboard: UILabel!
     
+    @IBOutlet weak var scoreboard: UILabel!
     func update(textView: UILabel) { //Handle the text changes here
         score = score + 1
-        Scoreboard.text = "Score \(score)"
+        scoreboard.text = "Score \(score)"
        // print(textView.text); //the textView parameter is the textView where text was changed
     }
     
@@ -147,7 +147,6 @@ class ViewController: UIViewController {
                     currTileID = "\(currTile.getID())"
                 }
                 changeImage(tile: currTile, newImage: UIImage(named: "icon\(currTileID)")!)
-                
             }
             
             if (firstSelected != -1 && secondSelected != -1)
@@ -157,6 +156,7 @@ class ViewController: UIViewController {
                 {
                     imageArray[firstSelected].matched = true
                     imageArray[secondSelected].matched = true
+                    update(textView: scoreboard)
                 }
             }
             print(firstSelected)
