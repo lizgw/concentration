@@ -129,9 +129,8 @@
                                     <segue destination="c2J-xD-VtN" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="dmE-9X-EHM"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scoreboard: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTT-c8-cPa">
-                                <rect key="frame" x="0.0" y="23" width="129" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scoreboard: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTT-c8-cPa">
+                                <rect key="frame" x="7" y="30" width="108.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -141,7 +140,10 @@
                         <constraints>
                             <constraint firstItem="lNx-Mc-PV5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="6" id="7YL-Up-hpD"/>
                             <constraint firstItem="UyL-ZG-5PE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="IXF-JP-4cZ"/>
+                            <constraint firstItem="pTT-c8-cPa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="7" id="Oh6-PQ-bT6"/>
                             <constraint firstAttribute="trailing" secondItem="thl-Qb-aSH" secondAttribute="trailing" id="Poc-ZW-A1E"/>
+                            <constraint firstItem="pTT-c8-cPa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="Wvh-Jk-1Ws"/>
+                            <constraint firstItem="UyL-ZG-5PE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pTT-c8-cPa" secondAttribute="trailing" constant="8" symbolic="YES" id="dBb-Bp-uZy"/>
                             <constraint firstItem="UyL-ZG-5PE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="exD-Uw-gFX"/>
                             <constraint firstAttribute="bottom" secondItem="thl-Qb-aSH" secondAttribute="bottom" id="f0Y-A4-1xj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lNx-Mc-PV5" secondAttribute="trailing" constant="8" id="h5A-GH-xcx"/>
